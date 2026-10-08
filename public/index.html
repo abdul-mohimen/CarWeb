@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>CarWeb - Inventory</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header>
+    <h1>CarWeb Inventory</h1>
+    <div class="actions">
+      <span id="status" class="status"></span>
+      <a id="exportBtn" class="btn" href="/api/export/sql">Export MSSQL (.sql)</a>
+    </div>
+  </header>
+
+  <main>
+    <section>
+      <h2>Add a car</h2>
+      <form id="carForm" novalidate>
+        <label>Make* <input name="make" maxlength="50" required></label>
+        <label>Model* <input name="model" maxlength="50" required></label>
+        <label>Year* <input name="year" type="number" min="1886" required></label>
+        <label>Price <input name="price" type="number" min="0" step="0.01"></label>
+        <label>Mileage <input name="mileage" type="number" min="0" step="1"></label>
+        <label>Color <input name="color" maxlength="30"></label>
+        <label>VIN (17 chars) <input name="vin" maxlength="17"></label>
+        <button type="submit" class="btn primary">Save car</button>
+      </form>
+      <p id="formError" class="error" role="alert"></p>
+    </section>
+
+    <section>
+      <h2>Cars</h2>
+      <table>
+        <thead>
+          <tr><th>ID</th><th>Make</th><th>Model</th><th>Year</th><th>Price</th><th>Mileage</th><th>Color</th><th>VIN</th><th></th></tr>
+        </thead>
+        <tbody id="carRows"><tr><td colspan="9">Loading…</td></tr></tbody>
+      </table>
+    </section>
+  </main>
+  <script src="app.js"></script>
+</body>
+</html>

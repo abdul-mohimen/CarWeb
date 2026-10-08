@@ -1,0 +1,19 @@
+{
+  "name": "carweb",
+  "version": "1.0.0",
+  "description": "CarWeb - car inventory web app on Microsoft SQL Server with T-SQL export",
+  "main": "src/server.js",
+  "private": true,
+  "scripts": {
+    "start": "node src/server.js",
+    "export:mssql": "node scripts/export-mssql.js",
+    "test": "node --test test/*.test.js"
+  },
+  "engines": {
+    "node": ">=18"
+  },
+  "dependencies": {
+    "express": "^4.21.2",
+    "mssql": "^11.0.1"
+  }
+}
